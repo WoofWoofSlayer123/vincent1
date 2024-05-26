@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test1</title>
+	<style type="text/css">
+		*{
+			font-family: monospace;
+		}
+		.header{
+			font-size: 20px;
+			display: flex;
+			justify-content: center;
+			padding: 18px 22px;
+		}
+		.body{
+			display: flex;
+  			margin-left: auto;
+  			margin-right: auto;
+  			margin-top: 20px;
+			height: 275px;
+			width: 350px;
+		}
+		.footer{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+		input[type=button]{
+			padding: 30px 38px;
+			margin: 30px 10px;
+			font-weight: bold;
+			font-size: 20px;
+			font-family: Bookman Old Style;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body style="background-color: blanchedalmond; border:5px solid hotpink;">
+	<div class="header">
+		<h1>＞ᨓ＜ Will you be my Valentine? ＞ᨓ＜</h1>
+	</div>
+	<div class="body">
+		<img src="https://media1.tenor.com/m/Vy46BTSo3hsAAAAC/bear-love.gif" alt="jif">
+	</div>
+	<div class="footer">
+		<form>
+			<input type="button" value="Yes" id="yes" onclick="Yes()" />
+			<input type="button" value="No" id="no" onclick="No()" />
+		</form>
+	</div>
+	<script type="text/javascript">
+		var ctr = 0;
+		var max_font = 63;
+		var max_pad = 70;
+		function No(){
+
+			var mesadge = ["Are You Sure?", "Think Again?", "Last Chance!", "Surely Not?", "You Might Regret This!", "Give it Another Thought!", "Are You Absolutely Certain?", "This Could Be A Mistake!", "Have A Heart!", "Dont Be So Cold!",  "Change Of Heart?", "Wouldn't You Reconsider?", "Is That Your Final Answer?", "You're Breaking My Heart :("];
+
+			var mesadge_output = Math.min(ctr++, ) % mesadge.length;
+			document.getElementById("no").value = mesadge[mesadge_output];
+
+			var button_big = document.getElementById("yes");
+			var font_size = parseFloat(window.getComputedStyle(button_big, null).getPropertyValue('font-size'));
+			var pad = parseFloat(window.getComputedStyle(button_big, null).getPropertyValue('padding'));
+			if (font_size <= max_font) {
+				button_big.style.fontSize = (font_size + 3) + 'px';
+			}
+
+			if (pad <= max_pad) {
+				button_big.style.padding = (pad + 3) + 'px';
+			}
+
+		}
+		function Yes(){
+			document.getElementById("yes").value = "Ok Yay!!!"
+		}
+	</script>
+</body>
+</html>
